@@ -29,5 +29,5 @@ publish:
   dependencies:
     - build
   script:
-    - yarn info
+    - yarn config current
     - ls

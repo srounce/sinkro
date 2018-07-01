@@ -30,5 +30,5 @@ publish:
   dependencies:
     - build
   script:
-    - yarn login --non-interactive
-    - yarn publish --non-interactive --access public 
+    - yarn login
+    - yarn publish --access public 

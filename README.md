@@ -17,7 +17,7 @@ const NowView = ({ now }) => (
   </div>
 )
 
-const time$ = timer.pipe(map(() => new Date()))
+const time$ = timer(0, 50).pipe(map(() => new Date()))
 
 const SubscribedNowView = subscribe({
   now: time$

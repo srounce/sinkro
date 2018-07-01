@@ -29,6 +29,5 @@ publish:
   dependencies:
     - build
   script:
-    - cat ~/.npmrc
     - yarn info
     - ls

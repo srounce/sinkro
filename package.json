@@ -1,6 +1,6 @@
 {
   "name": "sinkro",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A small helper for plugging ES Observables into React components",
   "main": "lib/index.js",
   "repository": "git@gitlab.com:srounce/sinkro.git",

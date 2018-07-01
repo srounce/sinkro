@@ -49,17 +49,15 @@ then run the test suite with: `yarn test`
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on the code of conduct, and the process for submitting pull requests.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](./tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](/tags). 
 
 ## Authors
 
 * **Samuel Rounce** - [srounce](https://github.com/srounce)
-
-See also the list of [contributors](./contributors) who participated in this project.
 
 ## License
 

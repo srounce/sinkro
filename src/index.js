@@ -7,12 +7,13 @@ import isEqual from 'lodash.isequal'
 
 const defaultOptions = () => ({
   overwriteProps: false,
-  rate: 10
+  rate: 0
 })
 
 const prop$fromSubscriptionMap = subscriptionMap => {
   const subscriptionKeys = Object.keys(subscriptionMap)
   const subscriptionValues = Object.values(subscriptionMap)
+    .concat(of(null))
     .map(v => isObservable(v)
       ? v
       : of(v)

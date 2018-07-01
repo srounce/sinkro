@@ -1,0 +1,20 @@
+{
+  "name": "sinkro-example-alarm",
+  "version": "1.0.0",
+  "description": "Alarmclock example",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "parcel --no-hmr src/index.html"
+  },
+  "author": "Samuel Rounce <me@samuelrounce.co.uk>",
+  "license": "Apache-2.0",
+  "private": true,
+  "devDependencies": {
+    "parcel-bundler": "^1.6.2"
+  },
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "sinkro": "../.."
+  }
+}

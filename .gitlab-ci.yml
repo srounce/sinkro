@@ -26,8 +26,9 @@ build:
 
 publish:
   stage: publish
+  when: manual
   dependencies:
     - build
   script:
-    - yarn config current
-    - ls
+    - yarn login --non-interactive
+    - yarn publish --non-interactive --access public 

@@ -31,4 +31,4 @@ publish:
     - build
   script:
     - echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" >> ~/.npmrc
-    - yarn publish --access public --tag $(node -p "require('./package.json').version")
+    - yarn publish --access public --new-version $(node -p "require('./package.json').version")

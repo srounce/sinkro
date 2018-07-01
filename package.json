@@ -16,7 +16,6 @@
     "declarative"
   ],
   "scripts": {
-    "prepublish": "npm run -s build",
     "build": "yarn babel -d lib/ -D --source-maps true --ignore '**.spec' src",
     "test": "jest",
     "format": "prettier-eslint --list-different --write 'server/**/*.js' 'src/**/*.js'"

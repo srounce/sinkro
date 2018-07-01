@@ -4,7 +4,7 @@
 
 ## Usage
 
-```
+```javascript
 import React from 'react'
 import { render } from 'react-dom'
 import { subscribe } from 'sinkro'

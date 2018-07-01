@@ -5,6 +5,16 @@
   "main": "lib/index.js",
   "repository": "git@gitlab.com:srounce/sinkro.git",
   "author": "Samuel Rounce <me@samuelrounce.co.uk>",
+  "keywords": [
+    "Observable",
+    "React",
+    "RxJS",
+    "Functional", "Reactive", "Programming",
+    "state",
+    "redux",
+    "stream",
+    "declarative"
+  ],
   "scripts": {
     "prepublish": "npm run -s build",
     "build": "yarn babel -d lib/ -D --source-maps true --ignore '**.spec' src",

@@ -73,7 +73,6 @@ export const subscribe = (subscriptionMap, userOptions) => {
             this.setState(v)
           },
           e => console.error(e) // TODO: REPLACE THIS!
-          , () => { debugger }
         )
       }
 

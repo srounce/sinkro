@@ -7,7 +7,9 @@ import isEqual from 'lodash.isequal'
 
 const defaultOptions = () => ({
   overwriteProps: false,
-  rate: 0
+  rate: 0,
+  compareProps: isEqual,
+  compareStream: isEqual
 })
 
 const prop$fromSubscriptionMap = subscriptionMap => {
@@ -83,8 +85,10 @@ export const subscribe = (subscriptionMap, userOptions) => {
 
       shouldComponentUpdate (nextProps, nextState) {
         return (
-          this.subscribed &&
-          (!isEqual(this.props, nextProps) || !isEqual(this.state, nextState))
+          this.subscribed && (
+            !options.compareProps(this.props, nextProps) ||
+            !options.compareStream(this.state, nextState)
+          )
         )
       }
 

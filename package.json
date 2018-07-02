@@ -1,6 +1,6 @@
 {
   "name": "sinkro",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A small helper for plugging ES Observables into React components",
   "main": "lib/index.js",
   "repository": "git@gitlab.com:srounce/sinkro.git",
@@ -9,7 +9,9 @@
     "Observable",
     "React",
     "RxJS",
-    "Functional", "Reactive", "Programming",
+    "Functional",
+    "Reactive",
+    "Programming",
     "state",
     "redux",
     "stream",

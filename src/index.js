@@ -8,6 +8,7 @@ import isEqual from 'lodash.isequal'
 const defaultOptions = () => ({
   overwriteProps: false,
   rate: 0,
+  share: true,
   compareProps: isEqual,
   compareStream: isEqual
 })
@@ -55,7 +56,9 @@ export const subscribe = (subscriptionMap, userOptions) => {
     prop$ = prop$.pipe(debounceTime(options.rate))
   }
 
-  prop$ = prop$.pipe(share())
+  if (options.share) {
+    prop$ = prop$.pipe(share())
+  }
 
   const SubscriberProxy = SubscribedComponent => {
     class Subscriber extends Component {

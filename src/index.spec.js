@@ -34,11 +34,16 @@ describe('subscribe(subscriptionMap: Object | Observable): (SubscribedComponent:
 
     test.concurrent('which accepts a React component and returns a subscribed React component', async () => {
       const TestComponent = jest.fn((props) => null)
-      const SubscribedComponent = subscribe({ test: interval(100) })(TestComponent)
+      const intervalRate = 100
+      const debounceRate = 10
+      const SubscribedComponent = subscribe(
+        { test: interval(intervalRate) },
+        { debounceRate }
+      )(TestComponent)
       expect(SubscribedComponent).toBeInstanceOf(Function)
 
       mount(<SubscribedComponent static />)
-      jest.advanceTimersByTime(101)
+      jest.advanceTimersByTime(intervalRate + debounceRate)
 
       expect(TestComponent).toHaveBeenCalledTimes(3)
       expect(TestComponent).toHaveBeenCalledWith({ static: true, test: 0 }, {})

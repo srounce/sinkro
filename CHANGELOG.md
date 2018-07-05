@@ -1,3 +1,13 @@
+# v1.2.0
+
+###### Features
+
+* Add `share` flag to allow configurability of internal stream 'hotness'
+
+###### Fixes
+
+* Replace 'magic' numbers in tests
+
 # v1.1.0
 
 ###### Features

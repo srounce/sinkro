@@ -40,6 +40,7 @@ const prop$fromSubscriptionMap = subscriptionMap => {
 }
 
 const isObservable = maybeObservable =>
+  typeof maybeObservable === 'object' &&
   typeof maybeObservable.subscribe === 'function'
 
 export const subscribe = (subscriptionMap, userOptions) => {

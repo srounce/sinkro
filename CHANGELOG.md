@@ -1,3 +1,12 @@
+# v1.2.1
+
+###### Fixes
+
+* Fix `ReferenceError` when passing null in `subscriptionMap`
+* Fix unmounted components delaying subscription, instead subscribe in constructor and ignore emissions until mount
+
+---
+
 # v1.2.0
 
 ###### Features
@@ -7,6 +16,8 @@
 ###### Fixes
 
 * Replace 'magic' numbers in tests
+
+---
 
 # v1.1.0
 
@@ -18,6 +29,7 @@
 
 * Remove stray debugger statement from internal subscription 'end' handler
 
+---
 
 # v1.0.1
 
@@ -30,6 +42,7 @@
 * Added keywords to package.json
 * Removed prepublish npm-script
 
+---
 
 # v1.0.0
 

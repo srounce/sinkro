@@ -45,7 +45,7 @@ describe('subscribe(subscriptionMap: Object | Observable): (SubscribedComponent:
       mount(<SubscribedComponent static />)
       jest.advanceTimersByTime(intervalRate + debounceRate)
 
-      expect(TestComponent).toHaveBeenCalledTimes(3)
+      expect(TestComponent).toHaveBeenCalledTimes(2)
       expect(TestComponent).toHaveBeenCalledWith({ static: true, test: 0 }, {})
     })
   })
@@ -62,7 +62,7 @@ describe('subscribe(subscriptionMap: Object | Observable): (SubscribedComponent:
 
       mount(<SubscribedComponent static />)
 
-      expect(TestComponent).toHaveBeenCalledTimes(2)
+      expect(TestComponent).toHaveBeenCalledTimes(1)
       expect(TestComponent).toHaveBeenCalledWith({ static: true, test: [1, 2, 3] }, {})
     })
   })

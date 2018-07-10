@@ -69,7 +69,7 @@ export const subscribe = (subscriptionMap, userOptions) => {
         this.subscription = null
       }
 
-      componentDidMount () {
+      componentWillMount () {
         this.subscription = prop$.subscribe(
           v => {
             this.subscribed = true

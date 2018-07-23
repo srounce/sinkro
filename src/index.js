@@ -70,7 +70,8 @@ export const subscribe = (subscriptionMap, userOptions) => {
         this.subscription = null
       }
 
-      componentWillMount () {
+      // eslint-disable-next-line camelcase
+      UNSAFE_componentWillMount () {
         this.subscription = prop$.subscribe(
           v => {
             this.subscribed = true

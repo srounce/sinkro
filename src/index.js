@@ -25,7 +25,7 @@ const prop$fromSubscriptionMap = subscriptionMap => {
   return from(subscriptionValues).pipe(
     map(s => race(
       s,
-      s.pipe(startWith(null))
+      s.pipe(startWith(undefined))
     )),
     combineAll((...latest) =>
       subscriptionKeys.reduce(

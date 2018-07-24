@@ -1,3 +1,11 @@
+# v1.2.2
+
+###### Fixes
+
+* Fix for defaultProps being overwritten(/not being used) (#13)
+* Remove usage of deprecated componentWillMount method (#10)
+---
+
 # v1.2.1
 
 ###### Fixes

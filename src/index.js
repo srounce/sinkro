@@ -7,6 +7,7 @@ import isEqual from 'lodash.isequal'
 
 const defaultOptions = () => ({
   overwriteProps: false,
+  ignoreByProps: false,
   rate: 0,
   share: true,
   compareProps: isEqual,
@@ -75,7 +76,16 @@ export const subscribe = (subscriptionMap, userOptions) => {
         this.subscription = prop$.subscribe(
           v => {
             this.subscribed = true
-            this.setState(v)
+            const propKeys = Object.keys(this.props)
+            let newState = v
+            
+            if (options.ignoreByProps) {
+              newState = Object.keys(v)
+                .filter(k => !propKeys.includes(k))
+                .reduce((acc, key) => ({ ...acc, [key]: v[key] }), {})
+            }
+
+            this.setState(prev => (isEqual(newState, prev) ? null : newState))
           },
           e => console.error(e) // TODO: REPLACE THIS!
         )

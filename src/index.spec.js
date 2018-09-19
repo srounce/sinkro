@@ -1,5 +1,6 @@
 import React from 'react'
-import { of, interval } from 'rxjs'
+import { of, interval, VirtualTimeScheduler } from 'rxjs'
+import { delay, map, startWith, take } from 'rxjs/operators'
 import { subscribe } from '.'
 import { mount } from 'enzyme'
 
@@ -64,6 +65,51 @@ describe('subscribe(subscriptionMap: Object | Observable): (SubscribedComponent:
 
       expect(TestComponent).toHaveBeenCalledTimes(1)
       expect(TestComponent).toHaveBeenCalledWith({ static: true, test: [1, 2, 3] }, {})
+    })
+  })
+
+  describe('where `ignoreByProps` is set to `true`', () => {
+    test.concurrent('It will ignore subscribed props where component prop of the same name is supplied', async () => {
+      const scheduler = new VirtualTimeScheduler()
+      const TestComponent = jest.fn(() => null)
+      const fireFiveUpdates$ = interval(10, scheduler)
+        .pipe(
+          take(4),
+          map(v => [v]),
+          delay(10, scheduler),
+          startWith([])
+        )
+      const SubscribedComponent = subscribe({ test: fireFiveUpdates$ }, { ignoreByProps: true })(TestComponent)
+
+      expect(SubscribedComponent).toBeInstanceOf(Function)
+
+      mount(<SubscribedComponent test={['a']} />)
+
+      scheduler.flush()
+
+      expect(TestComponent).toHaveBeenCalledTimes(1)
+    })
+  })
+  describe('where `ignoreByProps` is set to `false`', () => {
+    test.concurrent('It will overwrite component props where subscribed prop of the same name is supplied', async () => {
+      const scheduler = new VirtualTimeScheduler()
+      const TestComponent = jest.fn(() => null)
+      const fireFiveUpdates$ = interval(10, scheduler)
+        .pipe(
+          take(4),
+          map(v => [v]),
+          delay(10, scheduler),
+          startWith([])
+        )
+      const SubscribedComponent = subscribe({ test: fireFiveUpdates$ }, { ignoreByProps: false })(TestComponent)
+
+      expect(SubscribedComponent).toBeInstanceOf(Function)
+
+      mount(<SubscribedComponent test={['a']} />)
+
+      scheduler.flush()
+
+      expect(TestComponent).toHaveBeenCalledTimes(5)
     })
   })
 })

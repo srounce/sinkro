@@ -5,6 +5,9 @@
   "main": "lib/index.js",
   "repository": "git@gitlab.com:srounce/sinkro.git",
   "author": "Samuel Rounce <me@samuelrounce.co.uk>",
+  "contributors": [
+    "Luke Dyson <luke.dyson@flyinganvil.co.uk> (http://www.flyinganvil.co.uk/)"
+  ],
   "keywords": [
     "Observable",
     "React",
